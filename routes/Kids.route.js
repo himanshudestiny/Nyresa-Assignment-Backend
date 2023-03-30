@@ -24,15 +24,7 @@ async function getkids(url,page) {
         kids_data.push({ image, category, title, price });   
     });
 
-// for (let i = 0; i < kids_data.length; i++) {
-//     const el = kids_data[i];
-//     const arr = kidFromDb.map((el, i) => el.image);
-//     if (!arr.includes(el.image)) {
-//       const new_kid = await new kidsModel(el);
-//       await new_kid.save();
-//       kidFromDb.push(el);
-//     }
-//   }
+
 return(kids_data);
   } catch (err) {
     console.log(err);
