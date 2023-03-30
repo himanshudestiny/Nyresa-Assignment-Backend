@@ -10,12 +10,12 @@ const url =
 
 mensRouter.use(express.json());
 
-async function getMens(url,page,category) {
+async function getMens(url,page) {
     const mens_data = [];
   try {
     const menFromDb = await mensModel.find();
        console.log(page);
-      const response = await axios.get(url+ "?p="+ page+"&designer="+category);
+      const response = await axios.get(url+ "?p="+ page);
       const $ = cheerio.load(response.data);
       const mens = $(".item");
       mens.each(async function () {
@@ -44,12 +44,9 @@ return(mens_data);
 
 mensRouter.get("/", async (req, res) => {
     let page = req.query._page || 1;
-    let category = req.query._category || "";
-    let dir = req.query._dir || "";
-    let order = req.query._order || "";
-    let id = req.query._id || "";
+   
   try {
-    const men = await getMens(url,page,category);
+    const men = await getMens(url,page);
     console.log("men", men)
     res.send(men)
   } catch (err) {
@@ -61,7 +58,7 @@ mensRouter.get("/", async (req, res) => {
 
 mensRouter.get("/", async (req, res) => {
   let page = req.query._page || 1;
-  let category = req.query._category || "";
+  
 try {
   const men = await getMens(url,page);
   console.log("men", men)

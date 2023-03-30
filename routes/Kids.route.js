@@ -20,7 +20,7 @@ async function getkids(url,page) {
         image = $(this).find(".product-image img").attr("data-src");
         category = $(this).find(".ph1").text();
         title = $(this).find(".product-name a").text();
-        price = Number($(this).find(".price").text().replace("€", "").trim());
+        price = $(this).find(".price").text();
         kids_data.push({ image, category, title, price });   
     });
 
