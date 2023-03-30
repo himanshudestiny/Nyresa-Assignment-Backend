@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 5b5ab284b17f28e499c61d0a04c1e12a7cf820d1
     
   },
   "keywords": [],
